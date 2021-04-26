@@ -1,6 +1,6 @@
-#include <iostream>
-#include <string.h>
-#include <algorithm>
+#include <iostream> //untuk input-output
+#include <string.h> //untuk str function
+#include <algorithm> //untuk reverse function
 
 using namespace std;
 
@@ -9,7 +9,7 @@ string RandomMatriks(char _input[]);
 int main(){
     char input[] = {'t', 't', 't'};
     
-    cout << RandomMatriks(input);
+    cout << RandomMatriks(input) << endl;
 }
 
 string RandomMatriks(char _input[]){
