@@ -55,7 +55,7 @@ string RandomMatriks(char _input[]){
       {
         temp[j] = randomMatriks[i][j];
       }
-	  reverse(temp, temp + x);
+	    reverse(temp, temp + x);
       checker = strstr(temp, _input);
       if(checker != NULL){
         return "Ada";
