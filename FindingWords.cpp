@@ -71,6 +71,30 @@ string RandomMatriks(char _input[]){
             l--;   
         }        
     }
+    
+    //Vertical
+    for(int i = 0; i <= 14; i++) {
+		for (int j = 0; j <= 14; j++) {
+			temp[j] = randomMatriks[j][i];
+		}
+		checker = strstr(temp, _input);
+		if(checker != NULL) {
+			return "Ada";
+		}
+	}
+	
+	//Vertical Reverse
+	int JumlahHuruf = strlen(temp);
+	for (int i = 14; i >= 0; i--) {
+		for (int j = 14; j >= 0; j--) {
+			temp[j] = randomMatriks[j][i];
+		}   
+		reverse(temp, temp+JumlahHuruf);
+		checker = strstr(temp, _input);
+		if(checker != NULL){
+			return "Ada";
+		}
+	}
   
     for (int i = 0; i < 15; i++) //Diagonal sebagian kiri-tengah ke atas-kanan
     {
