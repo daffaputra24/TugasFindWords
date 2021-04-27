@@ -7,7 +7,7 @@ using namespace std;
 string RandomMatriks(char _input[]);
 
 int main(){
-    char input[] = {'s', 'w', 'r', 'e', 't', 'n'};
+    char input[] = {'i', 'w', 'w', 'b', 'g', 't'};
     
     cout << RandomMatriks(input) << endl;
 }
@@ -16,6 +16,7 @@ string RandomMatriks(char _input[]){
     int z = 0;
     char *checker;
     char temp[15];
+    char randomReverse[15][15];
     char randomMatriks[15][15] = {
         {'t', 'g', 'b', 'w', 'w', 'i', 'n', 't', 'e', 'r', 'w', 's', 'e', 's', 'n'},
         {'a', 'a', 'u', 'n', 't', 't', 'm', 'm', 'h', 'f', 'o', 'o', 'd', 'n', 'b'},
@@ -33,37 +34,45 @@ string RandomMatriks(char _input[]){
         {'p', 'd', 'c', 'r', 'z', 'm', 's', 'n', 'g', 'r', 'd', 'n', 'e', 'p', 'z'},
         {'o', 'h', 'n', 'k', 'z', 'w', 'a', 't', 'e', 'r', 'j', 'g', 't', 'r', 'a'},
         };
-	
-	for (int i = 0; i < 15; i++) // Horizontal
-	{
-		for (int j = 0; j < 15; j++)
-		{
-			temp[j] = randomMatriks[i][j];
-		}
-		checker = strstr(temp, _input);
-		if(checker != NULL){
-			return "Ada";
-		}
-	}
-	
-	int x = strlen(temp);
-	char in[15];
-	for (int i = 0; i < 15; i++) // Horizontal Reverse
-	{
-		for (int j = x-1; j >= 0; j--)
-		{
-			temp[j] = randomMatriks[i][j];
-		}
-		
-		checker = strstr(temp, _input);
-		if(checker != NULL){
-			return "Ada";
-		}
-	}
-	
-	
-	    
-    for (int i = 0; i < 15; i++) //Diagonal sebagian kiri-tengah-kanan ke atas-kanan
+  
+    for (int i = 0; i < 15; i++) // Horizontal
+    {
+      for (int j = 0; j < 15; j++)
+      {
+        temp[j] = randomMatriks[i][j];
+      }
+      checker = strstr(temp, _input);
+      if(checker != NULL){
+        return "Ada";
+      }
+    }
+
+    int x = strlen(temp);
+    char in[15];
+    for (int i = 0; i < 15; i++) // Horizontal Reverse
+    {
+      for (int j = x-1; j >= 0; j--)
+      {
+        temp[j] = randomMatriks[i][j];
+      }
+	  reverse(temp, temp + x);
+      checker = strstr(temp, _input);
+      if(checker != NULL){
+        return "Ada";
+      }
+    }
+  
+    for (int i = 0; i < 15; i++) //Reverse Multidimensional matrix
+    {
+        int l = 14;
+        for (int j = 0; j < 15; j++)
+        {
+            randomReverse[i][j] = randomMatriks[i][l];  
+            l--;   
+        }        
+    }
+  
+    for (int i = 0; i < 15; i++) //Diagonal sebagian kiri-tengah ke atas-kanan
     {
         for (int j = 0; j < 15 - z; j++)
         {
@@ -73,13 +82,13 @@ string RandomMatriks(char _input[]){
         z++;
         checker = strstr(temp, _input);
         if(checker != NULL){
-	        return "Ada";
-	    }
+            return "Ada";
+        }
     }
 
     z = 14;
 
-    for (int i = 0; i < 14; i++) //Diagonal sebagian kiri-bawah ke atas-tengah-kanan
+    for (int i = 0; i < 14; i++) //Diagonal sebagian kiri-bawah ke atas-tengah
     {
         for (int j = 14; j >= 0 + z; j--)
         {
@@ -90,8 +99,39 @@ string RandomMatriks(char _input[]){
         reverse(temp, &temp[strlen(temp)]);
         checker = strstr(temp, _input);
         if(checker != NULL){
-	        return "Ada";
-	    }
+            return "Ada";
+        }
+    }
+
+    for (int i = 0; i < 15; i++) //Diagonal sebagian kanan-tengah ke atas-kanan
+    {
+        for (int j = 0; j < 15 - z; j++)
+        {
+            temp[j] = randomReverse[j][j + z];
+        }   
+
+        z++;
+        checker = strstr(temp, _input);
+        if(checker != NULL){
+            return "Ada";
+        }
+    }
+
+    z = 14;
+
+    for (int i = 0; i < 14; i++) //Diagonal sebagian kanan-bawah ke atas-tengah
+    {
+        for (int j = 14; j >= 0 + z; j--)
+        {
+            temp[j - z] = randomReverse[j][j - z];
+        }
+        
+        z--;
+        reverse(temp, &temp[strlen(temp)]);
+        checker = strstr(temp, _input);
+        if(checker != NULL){
+            return "Ada";
+        }
     }
 
     return "Tidak Ada";
