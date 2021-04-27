@@ -7,7 +7,7 @@ using namespace std;
 string RandomMatriks(char _input[]);
 
 int main(){
-    char input[] = {'s', 'w', 'r', 'e', 't', 'n'};
+    char input[] = {'i', 'w', 'w', 'b', 'g', 't'};
     
     cout << RandomMatriks(input) << endl;
 }
@@ -55,7 +55,7 @@ string RandomMatriks(char _input[]){
       {
         temp[j] = randomMatriks[i][j];
       }
-
+	    reverse(temp, temp + x);
       checker = strstr(temp, _input);
       if(checker != NULL){
         return "Ada";
