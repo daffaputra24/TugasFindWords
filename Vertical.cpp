@@ -6,6 +6,7 @@ using namespace std;
 string RandomMatriks(char _input[]);
 
 int main() {
+	char input[] = {'q', 'l', 'm', 'p', 'o'};
 	char input[] = {'o', 'p', 'm', 'l', 'q'};
 	
 	cout << RandomMatriks(input);
