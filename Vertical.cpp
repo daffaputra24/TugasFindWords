@@ -40,7 +40,7 @@ string RandomMatriks(char _input[]) {
 		if(checker != NULL) {
 			return "Ada";
 		}
-	}
+	}	
 	
 	int JumlahHuruf = strlen(temp);
 	for (int i = 14; i >= 0; i--) {
