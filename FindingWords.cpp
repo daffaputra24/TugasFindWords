@@ -7,7 +7,7 @@ using namespace std;
 string RandomMatriks(char _input[]);
 
 int main(){
-    char input[] = {'t', 't', 't'};
+    char input[] = {'s', 'w', 'r', 'e', 't', 'n'};
     
     cout << RandomMatriks(input) << endl;
 }
@@ -33,6 +33,35 @@ string RandomMatriks(char _input[]){
         {'p', 'd', 'c', 'r', 'z', 'm', 's', 'n', 'g', 'r', 'd', 'n', 'e', 'p', 'z'},
         {'o', 'h', 'n', 'k', 'z', 'w', 'a', 't', 'e', 'r', 'j', 'g', 't', 'r', 'a'},
         };
+	
+	for (int i = 0; i < 15; i++) // Horizontal
+	{
+		for (int j = 0; j < 15; j++)
+		{
+			temp[j] = randomMatriks[i][j];
+		}
+		checker = strstr(temp, _input);
+		if(checker != NULL){
+			return "Ada";
+		}
+	}
+	
+	int x = strlen(temp);
+	char in[15];
+	for (int i = 0; i < 15; i++) // Horizontal Reverse
+	{
+		for (int j = x-1; j >= 0; j--)
+		{
+			temp[j] = randomMatriks[i][j];
+		}
+		
+		checker = strstr(temp, _input);
+		if(checker != NULL){
+			return "Ada";
+		}
+	}
+	
+	
 	    
     for (int i = 0; i < 15; i++) //Diagonal sebagian kiri-tengah-kanan ke atas-kanan
     {
