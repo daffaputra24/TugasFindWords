@@ -8,6 +8,8 @@ string RandomMatriks(char _input[]);
 
 int main(){
     char input[] = {'i', 'w', 'w', 'b', 'g', 't'};
+
+    // char input[] diisi oleh user
     
     cout << RandomMatriks(input) << endl;
 }
