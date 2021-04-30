@@ -7,7 +7,10 @@ using namespace std;
 string RandomMatriks(char _input[]);
 
 int main(){
-    char input[] = {'i', 'w', 'w', 'b', 'g', 't'};
+    char input[15];
+    cout << "Masukkan kata yang ingin dicari : ";
+    char sp = '\n';
+    cin.getline(input,15,sp);
     
     cout << RandomMatriks(input) << endl;
 }
