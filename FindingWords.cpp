@@ -11,8 +11,8 @@ int main(){
     int totalInput;
     
     cin >> totalInput;
-    
-	string hasil[totalInput];
+	
+    string hasil[totalInput];
     
     for(int i = 0; i < totalInput; i++){   
 	    cin.ignore(); 
