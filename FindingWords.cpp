@@ -62,7 +62,7 @@ string RandomMatriks(char _input[]){
       }
       checker = strstr(temp, _input);
       if(checker != NULL){
-        return "Ada";
+        return "ada";
       }
     }
 
@@ -77,7 +77,7 @@ string RandomMatriks(char _input[]){
 	    reverse(temp, temp + x);
       checker = strstr(temp, _input);
       if(checker != NULL){
-        return "Ada";
+        return "ada";
       }
     }
   
@@ -97,7 +97,7 @@ string RandomMatriks(char _input[]){
 		}
 		checker = strstr(temp, _input);
 		if(checker != NULL) {
-			return "Ada";
+			return "ada";
 		}
 	}
 		
@@ -109,7 +109,7 @@ string RandomMatriks(char _input[]){
 		reverse(temp, temp+JumlahHuruf);
 		checker = strstr(temp, _input);
 		if(checker != NULL){
-			return "Ada";
+			return "ada";
 		}
 	}
   
@@ -123,7 +123,7 @@ string RandomMatriks(char _input[]){
         z++;
         checker = strstr(temp, _input);
         if(checker != NULL){
-            return "Ada";
+            return "ada";
         }
     }
 
@@ -140,7 +140,7 @@ string RandomMatriks(char _input[]){
         reverse(temp, &temp[strlen(temp)]);
         checker = strstr(temp, _input);
         if(checker != NULL){
-            return "Ada";
+            return "ada";
         }
     }
 
@@ -154,7 +154,7 @@ string RandomMatriks(char _input[]){
         z++;
         checker = strstr(temp, _input);
         if(checker != NULL){
-            return "Ada";
+            return "ada";
         }
     }
 
@@ -171,9 +171,9 @@ string RandomMatriks(char _input[]){
         reverse(temp, &temp[strlen(temp)]);
         checker = strstr(temp, _input);
         if(checker != NULL){
-            return "Ada";
+            return "ada";
         }
     }
 
-    return "Tidak Ada";
+    return "tidak";
 }
