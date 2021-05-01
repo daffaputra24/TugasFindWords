@@ -7,11 +7,28 @@ using namespace std;
 string RandomMatriks(char _input[]);
 
 int main(){
-    char input[] = {'i', 'w', 'w', 'b', 'g', 't'};
-
-    // char input[] diisi oleh user
+    string userInput;
+    int totalInput;
     
-    cout << RandomMatriks(input) << endl;
+    cin >> totalInput;
+    
+	string hasil[totalInput];
+    
+    for(int i = 0; i < totalInput; i++){   
+	    cin.ignore(); 
+	    getline(cin, userInput);
+	    
+	    char input[strlen(userInput.c_str())];
+	    
+	    strcpy(input, userInput.c_str());
+   		
+   		hasil[i] = RandomMatriks(input);
+	}
+      
+	  
+	for(int i = 0; i < totalInput; i++){
+		cout << hasil[i] << endl;
+	}
 }
 
 string RandomMatriks(char _input[]){
@@ -73,6 +90,28 @@ string RandomMatriks(char _input[]){
             l--;   
         }        
     }
+        
+    for(int i = 0; i <= 14; i++) { //Vertical
+		for (int j = 0; j <= 14; j++) {
+			temp[j] = randomMatriks[j][i];
+		}
+		checker = strstr(temp, _input);
+		if(checker != NULL) {
+			return "Ada";
+		}
+	}
+		
+	int JumlahHuruf = strlen(temp);
+	for (int i = 14; i >= 0; i--) { //Vertical Reverse
+		for (int j = 14; j >= 0; j--) {
+			temp[j] = randomMatriks[j][i];
+		}   
+		reverse(temp, temp+JumlahHuruf);
+		checker = strstr(temp, _input);
+		if(checker != NULL){
+			return "Ada";
+		}
+	}
   
     for (int i = 0; i < 15; i++) //Diagonal sebagian kiri-tengah ke atas-kanan
     {
