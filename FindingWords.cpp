@@ -7,12 +7,28 @@ using namespace std;
 string RandomMatriks(char _input[]);
 
 int main(){
-    char input[15];
-    cout << "Masukkan kata yang ingin dicari : ";
-    char sp = '\n';
-    cin.getline(input,15,sp);
+    string userInput;
+    int totalInput;
     
-    cout << RandomMatriks(input) << endl;
+    cin >> totalInput;
+	
+    string hasil[totalInput];
+    
+    for(int i = 0; i < totalInput; i++){   
+	    cin.ignore(); 
+	    getline(cin, userInput);
+	    
+	    char input[strlen(userInput.c_str())];
+	    
+	    strcpy(input, userInput.c_str());
+   		
+   		hasil[i] = RandomMatriks(input);
+	}
+      
+	  
+	for(int i = 0; i < totalInput; i++){
+		cout << hasil[i] << endl;
+	}
 }
 
 string RandomMatriks(char _input[]){
@@ -46,7 +62,7 @@ string RandomMatriks(char _input[]){
       }
       checker = strstr(temp, _input);
       if(checker != NULL){
-        return "Ada";
+        return "ada";
       }
     }
 
@@ -61,7 +77,7 @@ string RandomMatriks(char _input[]){
 	    reverse(temp, temp + x);
       checker = strstr(temp, _input);
       if(checker != NULL){
-        return "Ada";
+        return "ada";
       }
     }
   
@@ -74,28 +90,26 @@ string RandomMatriks(char _input[]){
             l--;   
         }        
     }
-    
-    //Vertical
-    for(int i = 0; i <= 14; i++) {
+        
+    for(int i = 0; i <= 14; i++) { //Vertical
 		for (int j = 0; j <= 14; j++) {
 			temp[j] = randomMatriks[j][i];
 		}
 		checker = strstr(temp, _input);
 		if(checker != NULL) {
-			return "Ada";
+			return "ada";
 		}
 	}
-	
-	//Vertical Reverse
+		
 	int JumlahHuruf = strlen(temp);
-	for (int i = 14; i >= 0; i--) {
+	for (int i = 14; i >= 0; i--) { //Vertical Reverse
 		for (int j = 14; j >= 0; j--) {
 			temp[j] = randomMatriks[j][i];
 		}   
 		reverse(temp, temp+JumlahHuruf);
 		checker = strstr(temp, _input);
 		if(checker != NULL){
-			return "Ada";
+			return "ada";
 		}
 	}
   
@@ -109,7 +123,7 @@ string RandomMatriks(char _input[]){
         z++;
         checker = strstr(temp, _input);
         if(checker != NULL){
-            return "Ada";
+            return "ada";
         }
     }
 
@@ -126,7 +140,7 @@ string RandomMatriks(char _input[]){
         reverse(temp, &temp[strlen(temp)]);
         checker = strstr(temp, _input);
         if(checker != NULL){
-            return "Ada";
+            return "ada";
         }
     }
 
@@ -140,7 +154,7 @@ string RandomMatriks(char _input[]){
         z++;
         checker = strstr(temp, _input);
         if(checker != NULL){
-            return "Ada";
+            return "ada";
         }
     }
 
@@ -157,9 +171,9 @@ string RandomMatriks(char _input[]){
         reverse(temp, &temp[strlen(temp)]);
         checker = strstr(temp, _input);
         if(checker != NULL){
-            return "Ada";
+            return "ada";
         }
     }
 
-    return "Tidak Ada";
+    return "tidak";
 }
