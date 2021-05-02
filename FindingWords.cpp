@@ -11,11 +11,11 @@ int main(){
     int totalInput;
     
     cin >> totalInput;
+	cin.ignore();
 	
     string hasil[totalInput];
     
-    for(int i = 0; i < totalInput; i++){   
-	    cin.ignore(); 
+    for(int i = 0; i < totalInput; i++){    
 	    getline(cin, userInput);
 	    
 	    char input[strlen(userInput.c_str())];
@@ -62,7 +62,7 @@ string RandomMatriks(char _input[]){
       }
       checker = strstr(temp, _input);
       if(checker != NULL){
-        return "ada";
+        return "Ada";
       }
     }
 
@@ -74,10 +74,12 @@ string RandomMatriks(char _input[]){
       {
         temp[j] = randomMatriks[i][j];
       }
-	    reverse(temp, temp + x);
+	  
+	  reverse(temp, temp + x);
       checker = strstr(temp, _input);
+      
       if(checker != NULL){
-        return "ada";
+        return "Ada";
       }
     }
   
@@ -97,7 +99,7 @@ string RandomMatriks(char _input[]){
 		}
 		checker = strstr(temp, _input);
 		if(checker != NULL) {
-			return "ada";
+			return "Ada";
 		}
 	}
 		
@@ -109,7 +111,7 @@ string RandomMatriks(char _input[]){
 		reverse(temp, temp+JumlahHuruf);
 		checker = strstr(temp, _input);
 		if(checker != NULL){
-			return "ada";
+			return "Ada";
 		}
 	}
   
@@ -123,7 +125,7 @@ string RandomMatriks(char _input[]){
         z++;
         checker = strstr(temp, _input);
         if(checker != NULL){
-            return "ada";
+            return "Ada";
         }
     }
 
@@ -140,7 +142,7 @@ string RandomMatriks(char _input[]){
         reverse(temp, &temp[strlen(temp)]);
         checker = strstr(temp, _input);
         if(checker != NULL){
-            return "ada";
+            return "Ada";
         }
     }
 
@@ -154,7 +156,7 @@ string RandomMatriks(char _input[]){
         z++;
         checker = strstr(temp, _input);
         if(checker != NULL){
-            return "ada";
+            return "Ada";
         }
     }
 
@@ -171,9 +173,9 @@ string RandomMatriks(char _input[]){
         reverse(temp, &temp[strlen(temp)]);
         checker = strstr(temp, _input);
         if(checker != NULL){
-            return "ada";
+            return "Ada";
         }
     }
 
-    return "tidak";
+    return "Tidak Ada";
 }
