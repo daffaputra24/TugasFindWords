@@ -67,7 +67,6 @@ string RandomMatriks(char _input[]){
     }
 
     int x = strlen(temp);
-    char in[15];
     for (int i = 0; i < 15; i++) // Horizontal Reverse
     {
       for (int j = x-1; j >= 0; j--)
