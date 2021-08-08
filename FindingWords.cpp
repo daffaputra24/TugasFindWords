@@ -1,3 +1,10 @@
+//Anggota Kelompok
+/*
+M. Daffa Putra Wibowo - 2017051061
+Irvandra Dwidya Agsatra - 2017051055
+Rafi Dinata - 2017051043
+*/
+
 #include <iostream> //untuk input-output
 #include <string.h> //untuk str function
 #include <algorithm> //untuk reverse function
